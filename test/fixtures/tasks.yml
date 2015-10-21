@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  date: 2015-10-15
+  estimated_time: 2015-10-15 22:51:10
+
+two:
+  name: 
+  date: 2015-10-15
+  estimated_time: 2015-10-15 22:51:10

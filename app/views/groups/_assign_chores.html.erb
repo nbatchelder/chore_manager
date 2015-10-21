@@ -1,0 +1,16 @@
+<h1> Chore Assignments </h1>
+  <table class="table">
+    <tbody>
+      <% @group.user_chore_hash.keys.each do |user_id| %>
+          <tr>
+            <td><%= User.find(user_id).full_name %></td>
+            <% @group.user_chore_hash[user_id].each do |chore| %>
+              <td><%= chore.name %>(<%= chore.minutes %>)</td> 
+            <%end%>
+          </tr>
+      <%end%>
+        <br>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Assign Chores', assign_chores_path(@group), :method => :post , class: "btn btn-default"%> |
+<%= link_to 'Edit', edit_group_path(@group) , class: "btn btn-default"%> |
+<%= link_to 'Back', groups_path , class: "btn btn-default"%> <br> <br>
+
+<%= render 'assign_chores' %>
+
+<!-- <div class="container">
+  <h2><%= @group.name %></h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Chore Name</th>
+        <th>Estimated Time (minutes)</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @group.chores.each do |chore| %>
+      		<tr>
+        		<td><%= chore.name %></td>
+        		<td><%= chore.minutes %></td>
+            <td><%= link_to 'Remove', chore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      		</tr>
+      		<br>
+    	<% end %>
+    </tbody>
+    
+  </table>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Members</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @group.members.each do |member| %>
+          <tr>
+            <td><%= member.full_name %></td>
+            <td><%= link_to 'Remove', user_user_group_url(member, UserGroup.find_by(user_id: member.id, group_id: @group.id)), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <br>
+      <% end %>
+    </tbody>
+    
+  </table>
+</div> -->
+
+

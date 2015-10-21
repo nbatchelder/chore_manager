@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_groups.each do |user_group| %>
+      <tr>
+        <p> 
+          <strong>USER ID:</strong>
+          <%= user_group.user_id %>
+        </p>
+        <p>
+          <strong>GROUP ID:</strong>
+          <%= user_group.group_id %>
+        </p>
+      </tr>
+      <br>
+      <br>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User group', new_user_user_group_path %>

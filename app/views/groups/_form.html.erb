@@ -1,0 +1,49 @@
+
+
+ <%= nested_form_for(@group) do |f| %>
+   <% if @group.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+       <ul>
+       <% @group.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+       </ul>
+     </div>
+   <% end %>
+
+   <div class="field">
+     <%= f.label :name %><br>
+     <%= f.text_field :name %>
+   </div>
+
+  <%= f.fields_for :chores do |user_form| %>
+      <div class="input-group">
+        <div class="field">
+          <%= user_form.label :chorename %><br>
+          <%= user_form.text_field :name, :class=>"form-control", :placeholder => "chore name" %>
+        </div>
+         <div class="field">
+          <%= user_form.label :minutes %><br>
+          <%= user_form.text_field :minutes, :class=>"form-control", :placeholder => "minutes" %>
+        </div>
+          <span class="input-group-btn">
+            <%= user_form.link_to_remove "-", :class=>"btn btn-default", :type=>"button"%> 
+          </span>
+      </div>
+  <% end %>
+
+
+
+ <p><%= f.link_to_add "Add a chore", :chores, :class=>"btn btn-default" %></p>
+  
+  <div class="form-group">
+    <%= f.submit 'Submit', class: 'btn btn-default' %>
+  </div>
+ <% end %>
+
+
+
+
+  

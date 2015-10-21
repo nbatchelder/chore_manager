@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="panel-heading"> User </div>
+  <div class="panel-body">
+
+    <%= form_for @user do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :First %><br>
+        <%= f.text_field :firstname, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Last %><br>
+        <%= f.text_field :lastname, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Email %><br>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Username %><br>
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Password %><br>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+       <div class="form-group">
+        <%= f.label :Confirm %><br>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit 'Submit', class: 'btn btn-default' %>
+      </div>
+    <% end %>
+  </div>
+</div>

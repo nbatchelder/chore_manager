@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Groups</h1>
+
+<table>
+
+
+  <tbody>
+    <% current_user.my_groups.each do |group| %>
+      
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <h2><%= group.name%><h2> 
+
+        <% unless group.user_groups.empty? %>
+          <p>Members: <%= group.member_names.join(', ') %></p>
+        <% end %>
+        <div class="btn-group pull-right" role="group">
+          <%= link_to 'Show', group, class: "btn btn-default" %>
+          <%= link_to 'Edit', edit_group_path(group), class: "btn btn-default" %>
+          <%= link_to 'Delete', group, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

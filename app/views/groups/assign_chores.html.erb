@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h2>Chores for <%= @group.name %></h2>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Members</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @group.user_chore_hash.keys.each do |user_id| %>
+          <tr>
+            <td><%= User.find(user_id).full_name %></td>
+            <% @group.user_chore_hash[user_id].each do |chore| %>
+              <td><%= chore.name %>(<%= chore.minutes %>)</td> 
+            <%end%>
+          </tr>
+      <%end%>
+        <br>
+    </tbody>
+    
+  </table>
+</div>
+
+
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
