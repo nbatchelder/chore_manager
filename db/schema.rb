@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151018033037) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "chores", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151018033037) do
     t.string   "minutes"
   end
 
-  add_index "chores", ["group_id"], name: "index_chores_on_group_id"
+  add_index "chores", ["group_id"], name: "index_chores_on_group_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
